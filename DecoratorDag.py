@@ -21,7 +21,7 @@ def dag_initiator():
         ARGS={"ABHIJEET":"ABHIJEET"}
         logging.info("first Decorted task executed")
         rn=generateName(ARGS["ABHIJEET"])
-        logging.info(f"return value is {rn['ABHIJEET']}")
+        logging.info(f"return value is {rn["ABHIJEET"]}")
 
 
     def generateName(name):
