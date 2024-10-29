@@ -1,6 +1,11 @@
 from airflow.decorators import dag,task
 from datetime import datetime, timedelta
 import logging
+from airflow.models import Variable
+
+#we can use constant variables whose value we can store in airflow UI under Admin->Variable
+name1 = Variable.get('name')
+sirname = Variable.get("sirname")
 
 default_args = {
     "ower":"AbhijeetTarkase",
@@ -21,10 +26,12 @@ def dag_initiator():
         ARGS={"ABHIJEET":"ABHIJEET"}
         logging.info("first Decorted task executed")
         rn=generateName(ARGS["ABHIJEET"])
-        logging.info(f"return value is {rn["ABHIJEET"]}")
+        logging.info(f"return value is {rn['ABHIJEET']}")
 
 
     def generateName(name):
+
+        print(f"checking the constant variables {name1} {sirname},")
         dctName={
             "abhijeet":"tarkase",
             "ABHIJEET":"TARKASE"
